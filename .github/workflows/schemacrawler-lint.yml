@@ -16,21 +16,22 @@ jobs:
         uses: schemacrawler/SchemaCrawler-Action@v16.11.4
         with:
           entrypoint: /schemacrawler.sh
-          args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --output-file db_diagram.png --log-level=CONFIG
+          args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard command=lint --lint-dispatch=terminate_system --output-file lint-report.html --log-level=CONFIG
         env:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets
+
+      - id: checkin
+        name: Checkin lint report created from the SchemaCrawler Action
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add lint-report.html
+          git commit -m "SchemaCrawler lint report generated from GitHub action"
+          git push
 
       - id: check-success
         name: Check if the SchemaCrawler run succeeded
         run: |
           [ ${{ steps.schemacrawler.outputs.exit_status }} -eq 0 ] && echo "SchemaCrawler run succeeded" || exit ${{ steps.schemacrawler.outputs.exit_status }}
-      
-      - id: checkin
-        name: Checkin schema diagram created from the SchemaCrawler Action
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add db_diagram.png
-          git commit -m "SchemaCrawler schema diagram generated from GitHub action"
-          git push
+

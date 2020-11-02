@@ -1,10 +1,12 @@
+name: SchemaCrawler Job to Create Schema Diagram
+
 on: [push]
 
 jobs:
   schemacrawler-job:
     runs-on: ubuntu-latest
 
-    name: Run SchemaCrawler Report
+    name: SchemaCrawler Job to Create Schema Diagram
     steps:
 
       - id: checkout
@@ -33,4 +35,5 @@ jobs:
           git config user.email github-actions@github.com
           git add db_diagram.png
           git commit -m "SchemaCrawler schema diagram generated from GitHub action"
+          git pull
           git push

@@ -1,10 +1,12 @@
+name: SchemaCrawler Job to Lint Database Schema
+
 on: [push]
 
 jobs:
   schemacrawler-job:
     runs-on: ubuntu-latest
 
-    name: Run SchemaCrawler Database Lint Report
+    name: SchemaCrawler Job to Lint Database Schema
     steps:
 
       - id: checkout
@@ -16,7 +18,7 @@ jobs:
         uses: schemacrawler/SchemaCrawler-Action@v16.11.4
         with:
           entrypoint: /schemacrawler.sh
-          args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --linter-configs ./.github/schemacrawler/schemacrawler-linter-configs.xml --lint-dispatch=terminate_system --output-file lint-report.txt --log-level=CONFIG
+          args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --linter-configs ./.github/schemacrawler/schemacrawler-linter-configs.xml --lint-dispatch=throw_exception --output-file lint-report.txt --log-level=CONFIG
         env:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets
@@ -28,6 +30,7 @@ jobs:
           git config user.email github-actions@github.com
           git add lint-report.txt
           git commit -m "SchemaCrawler lint report generated from GitHub action"
+          git pull
           git push
 
       - id: check-success

@@ -18,7 +18,7 @@ jobs:
         uses: schemacrawler/SchemaCrawler-Action@v16.11.4
         with:
           entrypoint: /schemacrawler.sh
-          args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --output-file lint-report.txt
+          args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --linter-configs ./.github/schemacrawler/schemacrawler-linter-configs.xml --output-file lint-report.txt
         env:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets

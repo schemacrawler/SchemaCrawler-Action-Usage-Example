@@ -25,6 +25,7 @@ jobs:
 
       - id: checkin
         name: Checkin lint report created from the SchemaCrawler Action
+        if: false
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com

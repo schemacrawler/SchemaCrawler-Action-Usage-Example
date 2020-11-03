@@ -15,7 +15,7 @@ jobs:
 
       - id: schemacrawler
         name: Run SchemaCrawler Action with specified command-line
-        uses: schemacrawler/SchemaCrawler-Action@v16.11.4
+        uses: schemacrawler/SchemaCrawler-Action@v16.11.5
         with:
           entrypoint: /schemacrawler.sh
           args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --linter-configs ./.github/schemacrawler/schemacrawler-linter-configs.xml --lint-dispatch=terminate_system --output-file lint-report.txt --log-level=CONFIG

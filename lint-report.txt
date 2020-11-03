@@ -1,0 +1,101 @@
+
+
+Lints
+========================================================================
+
+
+
+Authors                                                          [table]
+------------------------------------------------------------------------
+
+                                                          [lint, medium]
+	incrementing columns	Authors.Address1, Authors.Address2
+                                                             [lint, low]
+	should have remarks	
+	should have remarks	Id, FirstName, LastName, Address1, Address2, City, State, PostalCode, Country
+
+
+
+AuthorsList                                                       [view]
+------------------------------------------------------------------------
+
+                                                             [lint, low]
+	should have remarks	
+	should have remarks	Id, FirstName, LastName
+
+
+
+BookAuthors                                                      [table]
+------------------------------------------------------------------------
+
+                                                            [lint, high]
+	no primary key	
+	primary key may not be a surrogate	
+                                                             [lint, low]
+	foreign key with no index	Z_FK_Author
+	should have remarks	
+	should have remarks	BookId, AuthorId, SomeData
+
+
+
+Books                                                            [table]
+------------------------------------------------------------------------
+
+                                                          [lint, medium]
+	unique index with nullable columns	Books.sqlite_autoindex_Books_1
+                                                             [lint, low]
+	should have remarks	
+	should have remarks	Id, Title, Description, PublisherId, PublicationDate, Price, PreviousEditionId
+
+
+
+Coupons                                                          [table]
+------------------------------------------------------------------------
+
+                                                          [lint, medium]
+	no non-nullable data columns	
+                                                             [lint, low]
+	should have remarks	
+	should have remarks	Id, Data, Coupons, Books
+
+
+
+"Global Counts"                                                  [table]
+------------------------------------------------------------------------
+
+                                                        [lint, critical]
+	no indexes	
+                                                            [lint, high]
+	no primary key	
+	primary key may not be a surrogate	
+                                                          [lint, medium]
+	no non-nullable data columns	
+	spaces in name, or reserved word	
+	spaces in name, or reserved word	Global Count
+	spaces in name, or reserved word	UPDATE
+                                                             [lint, low]
+	should have remarks	
+	should have remarks	Global Count, UPDATE
+
+
+
+Publishers                                                       [table]
+------------------------------------------------------------------------
+
+                                                          [lint, medium]
+	no non-nullable data columns	
+                                                             [lint, low]
+	should have remarks	
+	should have remarks	Id, Publisher
+
+
+
+Βιβλία                                                           [table]
+------------------------------------------------------------------------
+
+                                                             [lint, low]
+	foreign key with no index	
+	empty table	
+	should have remarks	
+	should have remarks	Μοναδικός, Τίτλος, Περιγραφή, Εκδότης
+

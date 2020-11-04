@@ -26,6 +26,7 @@ jobs:
       - id: checkin
         name: Checkin schema diagram created by the SchemaCrawler Action
         run: |
+          sleep $((10 + RANDOM % 20))
           git config user.name github-actions
           git config user.email github-actions@github.com
           git config pull.rebase true

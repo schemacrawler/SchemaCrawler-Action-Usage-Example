@@ -29,7 +29,7 @@ jobs:
         uses: schemacrawler/SchemaCrawler-Action@v16.11.5
         with:
           entrypoint: /schemacrawler.sh
-          args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --linter-configs schemacrawler-linter-configs.xml --lint-dispatch=terminate_system --output-file lint-report.txt --log-level=FINE
+          args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --linter-configs /schemacrawler-linter-configs.xml --lint-dispatch=terminate_system --output-file lint-report.txt --log-level=FINE
         env:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets
@@ -37,7 +37,7 @@ jobs:
       - id: checkin
         name: Checkin lint report created by the SchemaCrawler Action
         run: |
-          sleep $((10 + RANDOM % 20))
+          sleep $((20 + RANDOM % 20)) # avoid clashes with other actions
           git config user.name github-actions
           git config user.email github-actions@github.com
           git config pull.rebase true

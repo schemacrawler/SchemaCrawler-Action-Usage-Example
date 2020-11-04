@@ -19,9 +19,9 @@ Fork this project. The GitHub Actions workflows will automatically run. One work
 
 You can customize the SchemaCrawler workflows in various ways.
 
-1. Modify the SchemaCrawler command-line to run a different SchemaCrawler command, with different command-line options.
-   - Take a look at the GitHub Actions workflows in `.github/workflows`, and modify the command-line options in the `schemacrawler` step.
-2. Add your database's JDBC driver, or any other extension jar files to the SchemaCrawler classpath.
-   - Add your jars to `.github/schemacrawler/lib`. There is already an example jar with the Firebird JDBC driver there.
-3. Modify SchemaCrawler configuration.
-   - Modify the SchemaCrawler configuration files in `.github/schemacrawler/config`. Some modifications are already made - for example, to show column ordinal numbers in the diagram.
+1. Modify the SchemaCrawler command-line to run a different SchemaCrawler command, with different command-line options.  
+Take a look at the GitHub Actions workflows in `.github/workflows`, and modify the command-line options in the `schemacrawler` step.
+2. Add your database's JDBC driver, or any other extension jar files to the SchemaCrawler classpath.  
+Add your jars to `.github/schemacrawler/lib`. There is already an example jar with the Firebird JDBC driver there.
+3. Modify SchemaCrawler configuration.  
+Modify the SchemaCrawler configuration files in `.github/schemacrawler/config`. Some modifications are already made - for example, to show column ordinal numbers in the diagram.

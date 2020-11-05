@@ -35,4 +35,3 @@ jobs:
         run: |
           [ ${{ steps.schemacrawler.outputs.exit_status }} -eq 0 ] && echo "SchemaCrawler lint check succeeded" || echo "SchemaCrawler lint check shows failures - see the lint report"
           [ ${{ steps.schemacrawler.outputs.exit_status }} -eq 0 ] || exit 1
-

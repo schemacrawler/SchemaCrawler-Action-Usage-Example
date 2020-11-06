@@ -25,3 +25,10 @@ Take a look at the GitHub Actions workflows in `.github/workflows`, and modify t
 Add your jars to `.github/schemacrawler/lib`. There is already an example jar with the Firebird JDBC driver there.
 3. Modify SchemaCrawler configuration.  
 Modify the SchemaCrawler configuration files in `.github/schemacrawler/config`. Some modifications are already made - for example, to show column ordinal numbers in the diagram.
+
+## Further Reading
+
+Also take a look at the following article for ideas on how you could use the SchemaCrawler Action
+- [Generate Database Diagrams With GitHub Actions Workflows](https://dev.to/sualeh/generate-database-diagrams-with-github-actions-workflows-4l96)
+- [Lint Your Database Schema With GitHub Actions Workflows](https://dev.to/sualeh/lint-your-database-schema-with-github-actions-workflows-57cg)
+

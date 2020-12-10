@@ -1,8 +1,12 @@
-image: schemacrawler/schemacrawler:v16.11.6
+image: 
+  name: schemacrawler/schemacrawler:v16.11.6
+  entrypoint: [""]
 
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-
-test:
+schema-lint:
   script:
-    - schemacrawler -v
+    - shopt -s expand_aliases
+    - source ~/.bashrc
+    - schemacrawler --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --output-file lint-report.txt
+  artifacts:
+    paths:
+      - lint-report.txt

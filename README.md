@@ -15,6 +15,8 @@ The *SchemaCrawler Action for GitHub Actions* allows you to run a SchemaCrawler 
 
 Fork this project. The GitHub Actions workflows will automatically run. One workflow will use SchemaCrawler to generate a schema diagram PNG file, and make it available as an artifact of the job run. The other workflow will run SchemaCrawler lint. The workflow will fail on lint errors, but the lint report will be available as an artifact of the job run.
 
+> **SchemaCrawler can also be used in GitLab jobs. For an example, please see [sualeh/schemacrawler-action-usage-example](https://gitlab.com/sualeh/schemacrawler-action-usage-example).**
+
 ## How to Customize
 
 You can customize the SchemaCrawler workflows in various ways.

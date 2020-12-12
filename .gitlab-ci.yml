@@ -2,11 +2,15 @@ image:
   name: schemacrawler/schemacrawler:v16.11.6
   entrypoint: [""]
 
+variables:
+  USER: "get_username_from_secrets"
+  PASSWORD: "get_password_from_secrets"
+
 schema-lint:
   script:
     - shopt -s expand_aliases
     - source ~/.bashrc
-    - schemacrawler --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --output-file lint-report.txt
+    - schemacrawler --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --output-file lint-report.txt --log-level=ALL
   artifacts:
     paths:
       - lint-report.txt

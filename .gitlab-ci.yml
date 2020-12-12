@@ -10,7 +10,7 @@ schema-lint:
   script:
     - shopt -s expand_aliases
     - source ~/.bashrc
-    - schemacrawler --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --output-file lint-report.txt --log-level=ALL
+    - schemacrawler --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --output-file lint-report.txt --log-level=CONFIG
   artifacts:
     paths:
       - lint-report.txt

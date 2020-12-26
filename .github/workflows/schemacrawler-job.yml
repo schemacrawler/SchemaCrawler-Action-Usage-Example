@@ -15,7 +15,7 @@ jobs:
 
       - id: schemacrawler
         name: Run SchemaCrawler Action with specified command-line
-        uses: schemacrawler/SchemaCrawler-Action@v16.11.6
+        uses: schemacrawler/SchemaCrawler-Action@v16.11.7
         with:
           entrypoint: /schemacrawler.sh
           args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=brief --output-file database-diagram.png --log-level=CONFIG

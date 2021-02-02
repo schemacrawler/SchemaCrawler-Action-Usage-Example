@@ -1,0 +1,38 @@
+name: SchemaCrawler Job to Lint Database Schema
+
+on: [push]
+
+jobs:
+  schemacrawler-job:
+    runs-on: ubuntu-latest
+
+    name: SchemaCrawler Job to Lint Database Schema
+    steps:
+
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@v2
+
+      - id: schemacrawler
+        name: Run SchemaCrawler Action with specified command-line
+        uses: schemacrawler/SchemaCrawler-Action@v16.11.7
+        with:
+          entrypoint: /schemacrawler.sh
+          args: --server=sqlite --database=schemacrawler.sqlite --info-level=standard --command  script --tables "Authors|Books|BookAuthors" --script-language python --script mermaid.py --output-file mermaid-er.txt --log-level=FINE
+        env:
+          USER: user-possibly-from-secrets
+          PASSWORD: password-possibly-from-secrets
+
+      - id: upload-lint-report
+        name: Upload SchemaCrawler mermaid diagram
+        uses: actions/upload-artifact@v2
+        with:
+          name: mermaid-er
+          path: mermaid-er.txt
+
+      - id: check-success
+        name: Fail the entire job if SchemaCrawler lint report has failures
+        run: |
+          [ ${{ steps.schemacrawler.outputs.exit_status }} -eq 0 ] && echo "SchemaCrawler mermaid diagram generation succeeded" || echo "SchemaCrawler lint check shows failures - see the lint report"
+          [ ${{ steps.schemacrawler.outputs.exit_status }} -eq 0 ] || exit 1
+

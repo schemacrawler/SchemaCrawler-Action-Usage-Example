@@ -11,6 +11,8 @@ schema-lint:
     - shopt -s expand_aliases
     - source ~/.bashrc
     - schemacrawler --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --output-file lint-report.txt --log-level=CONFIG
+    - schemacrawler --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=script --tables "Authors|Books|BookAuthors" --script-language python --script mermaid.py --output-file mermaid-er.txt --log-level=CONFIG    
   artifacts:
     paths:
       - lint-report.txt
+      - mermaid-er.txt

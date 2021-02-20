@@ -4,13 +4,12 @@ import re
 print('erDiagram')
 print('')
 for table in catalog.tables:
-  print('  ' + table.fullName + ' {')
+  print('  ' + re.sub(r'\.', '-', table.fullName) + ' {')
   for column in table.columns:
-    print('    ' + re.sub(r'\([\d ,]+\)', '', column.columnDataType.name) + ' ' + column.name)
+    print('    ' + re.sub(r'\([\d ,]+\)|\[[\d ,]+\]|\s+', '', column.columnDataType.name) + ' ' + column.name)
   print('  }')
   print('')
   
 for table in catalog.tables:  
   for childTable in table.getRelatedTables(TableRelationshipType.child):
-    print('  ' + table.name + ' ||--o{ ' + childTable.name + ' : "foreign key"')
-  print('')
+    print('  ' + re.sub(r'\.', '-', table.fullName) + ' ||--o{ ' + re.sub(r'\.', '-', childTable.fullName) + ' : "foreign key"')

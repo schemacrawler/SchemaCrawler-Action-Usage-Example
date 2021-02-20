@@ -15,7 +15,7 @@ jobs:
 
       - id: schemacrawler
         name: Run SchemaCrawler Action with specified command-line
-        uses: schemacrawler/SchemaCrawler-Action@v16.12.1
+        uses: schemacrawler/SchemaCrawler-Action@v16.12.2
         with:
           entrypoint: /schemacrawler.sh
           args: --server=sqlite --database=schemacrawler.sqlite --info-level=standard --command  script --tables "Authors|Books|BookAuthors" --script-language python --script mermaid.py --output-file mermaid-er.txt --log-level=FINE
@@ -23,7 +23,7 @@ jobs:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets
 
-      - id: upload-lint-report
+      - id: upload-mermaid-er
         name: Upload SchemaCrawler mermaid diagram
         uses: actions/upload-artifact@v2
         with:

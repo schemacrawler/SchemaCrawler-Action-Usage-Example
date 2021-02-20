@@ -15,7 +15,7 @@ jobs:
 
       - id: schemacrawler
         name: Run SchemaCrawler Action with specified command-line
-        uses: schemacrawler/SchemaCrawler-Action@v16.12.1
+        uses: schemacrawler/SchemaCrawler-Action@v16.12.2
         with:
           entrypoint: /schemacrawler.sh
           args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=brief --output-file database-diagram.png --log-level=CONFIG
@@ -23,7 +23,7 @@ jobs:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets
 
-      - id: upload-lint-report
+      - id: upload-database-diagram
         name: Upload SchemaCrawler database diagram
         uses: actions/upload-artifact@v2
         with:

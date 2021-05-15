@@ -1,5 +1,5 @@
 image: 
-  name: schemacrawler/schemacrawler:v16.14.5
+  name: schemacrawler/schemacrawler:v16.14.6
   entrypoint: [""]
 
 variables:

@@ -18,10 +18,10 @@ jobs:
         uses: schemacrawler/SchemaCrawler-Action@v16.16.3
         with:
           entrypoint: /schemacrawler.sh
-          args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=brief --output-file database-diagram.png --log-level=CONFIG
+          args: --server=postgresql --database=compliance-platform-dev --host=${{ secrets.HOST }} --user:env USER --password:env PASSWORD --info-level=standard --command=brief --output-file database-diagram.png --log-level=CONFIG
         env:
-          USER: user-possibly-from-secrets
-          PASSWORD: password-possibly-from-secrets
+          USER: ${{ secrets.USER }}
+          PASSWORD: ${{ secrets.PASSWORD }}
 
       - id: upload-database-diagram
         name: Upload SchemaCrawler database diagram

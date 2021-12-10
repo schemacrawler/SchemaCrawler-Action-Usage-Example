@@ -18,10 +18,10 @@ jobs:
         uses: schemacrawler/SchemaCrawler-Action@v16.16.3
         with:
           entrypoint: /schemacrawler.sh
-          args: --server=sqlite --database=schemacrawler.sqlite --info-level=standard --command  script --tables "Authors|Books|BookAuthors" --script-language python --script dbml.py --output-file dbml-er.dbml --log-level=FINE
+          args: --server=postgresql --database=compliance-platform-dev --host=${{ secrets.HOST }} --info-level=standard --command  script --tables "Authors|Books|BookAuthors" --script-language python --script dbml.py --output-file dbml-er.dbml --log-level=FINE
         env:
-          USER: user-possibly-from-secrets
-          PASSWORD: password-possibly-from-secrets
+          USER: ${{ secrets.USER }}
+          PASSWORD: ${{ secrets.PASSWORD }}
 
       - id: upload-dbml
         name: Upload SchemaCrawler dbdiagram.io diagram

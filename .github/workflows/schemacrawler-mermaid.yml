@@ -18,7 +18,7 @@ jobs:
         uses: schemacrawler/SchemaCrawler-Action@v16.16.3
         with:
           entrypoint: /schemacrawler.sh
-          args: --server=postgresql --database=compliance-platform-dev --host=${{ secrets.HOST }} --info-level=standard --command  script --tables "Authors|Books|BookAuthors" --script-language python --script mermaid.py --output-file mermaid-er.mmd --log-level=FINE
+          args: --server=postgresql --database=compliance-platform-de --host=${{ secrets.HOST }} --info-level=standard --command  script --tables "Authors|Books|BookAuthors" --script-language python --script mermaid.py --output-file mermaid-er.mmd --log-level=FINE
         env:
           USER: ${{ secrets.USER }}
           PASSWORD: ${{ secrets.PASSWORD }}

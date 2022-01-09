@@ -15,7 +15,7 @@ jobs:
 
       - id: schemacrawler
         name: Run SchemaCrawler Action with specified command-line
-        uses: schemacrawler/SchemaCrawler-Action@v16.16.6
+        uses: schemacrawler/SchemaCrawler-Action@v16.16.7
         with:
           entrypoint: /schemacrawler.sh
           args: --server=sqlite --database=schemacrawler.sqlite --info-level=standard --command  script --tables "Authors|Books|BookAuthors" --script-language python --script dbml.py --output-file dbml-er.dbml --log-level=FINE

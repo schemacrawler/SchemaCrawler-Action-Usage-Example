@@ -1,6 +1,5 @@
 from __future__ import print_function
 import re
-from schemacrawler.schema import TableRelationshipType # pylint: disable=import-error
 from schemacrawler.schemacrawler import IdentifierQuotingStrategy # pylint: disable=import-error
 from schemacrawler.utility import MetaDataUtility # pylint: disable=import-error
 

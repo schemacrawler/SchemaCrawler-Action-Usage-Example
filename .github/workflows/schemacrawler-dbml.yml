@@ -18,7 +18,7 @@ jobs:
         uses: schemacrawler/SchemaCrawler-Action@v16.16.14
         with:
           entrypoint: /schemacrawler.sh
-          args: --server=sqlite --database=schemacrawler.sqlite --info-level=standard --command  script --tables "Authors|Books|BookAuthors" --script-language python --script dbml.py --output-file share/dbml-er.dbml --log-level=FINE
+          args: --server=sqlite --database=schemacrawler.sqlite --info-level=standard --command  script --tables "Authors|Books|BookAuthors" --script-language python --script dbml.py --output-file dbml-er.dbml --log-level=FINE
         env:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets

@@ -11,14 +11,14 @@ jobs:
 
       - id: checkout
         name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - id: schemacrawler
         name: Run SchemaCrawler Action with specified command-line
         uses: schemacrawler/SchemaCrawler-Action@v16.22.2
         with:
           entrypoint: /schemacrawler.sh
-          args: --server=sqlite --database=schemacrawler.sqlite --info-level=standard --command  script --tables "Authors|Books|BookAuthors" --script-language python --script mermaid.py --output-file mermaid-er.mmd --log-level=FINE
+          args: --server=sqlite --database=schemacrawler.sqlite --info-level=standard --command  script --tables "Authors|Books|BookAuthors" --script-language python --script mermaid.py --output-file mermaid-er.mmd --log-level CONFIG
         env:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets
@@ -32,7 +32,7 @@ jobs:
 
       - id: upload-mermaid-er
         name: Upload SchemaCrawler mermaid diagram
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: mermaid-er
           path: mermaid-er.*

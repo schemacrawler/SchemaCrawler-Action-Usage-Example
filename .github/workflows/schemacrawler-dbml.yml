@@ -23,12 +23,22 @@ jobs:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets
 
+      - id: generate-diagram
+        name: Generate dbdiagram.io diagram and SQL
+        run: |
+          # Generate dbdiagram.io diagram
+          npm install -g @dbml/cli
+          dbml2sql dbml-er.dbml --postgres -o dbml-er-postgres.sql
+          dbml2sql dbml-er.dbml --mysql -o dbml-er-mysql.sql
+          dbml2sql dbml-er.dbml --oracle -o dbml-er-oracle.sql
+          dbml2sql dbml-er.dbml --mssql -o dbml-er-mssql.sql
+
       - id: upload-dbml
         name: Upload SchemaCrawler dbdiagram.io diagram
         uses: actions/upload-artifact@v4
         with:
           name: dbml-er
-          path: dbml-er.*
+          path: dbml-er*.*
 
       - id: check-success
         name: Fail the entire job if SchemaCrawler dbdiagram.io diagram generation has failures

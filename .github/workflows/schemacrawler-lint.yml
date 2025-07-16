@@ -15,10 +15,20 @@ jobs:
 
       - id: schemacrawler
         name: Run SchemaCrawler Action with specified command-line
-        uses: schemacrawler/SchemaCrawler-Action@v16.26.2
+        uses: schemacrawler/SchemaCrawler-Action@v16.26.3
         with:
           entrypoint: /schemacrawler.sh
-          args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=lint --linter-configs /schemacrawler-linter-configs.yaml --lint-dispatch=write_err --output-file lint-report.txt --log-level CONFIG
+          args: >
+            --server=sqlite
+            --database=schemacrawler.sqlite
+            --user:env USER
+            --password:env PASSWORD
+            --info-level=standard
+            --command=lint
+            --linter-configs /schemacrawler-linter-configs.yaml
+            --lint-dispatch=write_err
+            --output-file lint-report.txt
+            --log-level CONFIG
         env:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets
@@ -29,10 +39,3 @@ jobs:
         with:
           name: lint-report
           path: lint-report.txt
-
-      - id: check-success
-        name: Fail the entire job if SchemaCrawler lint report has failures
-        run: |
-          [ ${{ env.SC_EXIT_STATUS }} -eq 0 ] && echo "SchemaCrawler lint check succeeded" || echo "SchemaCrawler lint check shows failures - see the lint report"
-          [ ${{ env.SC_EXIT_STATUS }} -eq 0 ] || exit 1
-

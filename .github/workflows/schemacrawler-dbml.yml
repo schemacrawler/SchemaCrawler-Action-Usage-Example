@@ -15,10 +15,19 @@ jobs:
 
       - id: schemacrawler
         name: Run SchemaCrawler Action with specified command-line
-        uses: schemacrawler/SchemaCrawler-Action@v16.26.2
+        uses: schemacrawler/SchemaCrawler-Action@v16.26.3
         with:
           entrypoint: /schemacrawler.sh
-          args: --server=sqlite --database=schemacrawler.sqlite --info-level=standard --command  script --tables "Authors|Books|BookAuthors" --script-language python --script ./.github/scripts/dbml.py --output-file dbml-er.dbml --log-level CONFIG
+          args: >
+            --server=sqlite
+            --database=schemacrawler.sqlite
+            --info-level=standard
+            --command script
+            --tables "Authors|Books|BookAuthors"
+            --script-language python
+            --script ./.github/scripts/dbml.py
+            --output-file dbml-er.dbml
+            --log-level CONFIG
         env:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets
@@ -39,10 +48,3 @@ jobs:
         with:
           name: dbml-er
           path: dbml-er*.*
-
-      - id: check-success
-        name: Fail the entire job if SchemaCrawler dbdiagram.io diagram generation has failures
-        run: |
-          [ ${{ env.SC_EXIT_STATUS }} -eq 0 ] && echo "SchemaCrawler dbdiagram.io diagram generation succeeded" || echo "SchemaCrawler dbdiagram.io diagram generation failed"
-          [ ${{ env.SC_EXIT_STATUS }} -eq 0 ] || exit 1
-

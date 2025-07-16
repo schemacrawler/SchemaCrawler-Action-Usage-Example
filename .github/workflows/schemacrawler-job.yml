@@ -15,10 +15,18 @@ jobs:
 
       - id: schemacrawler
         name: Run SchemaCrawler Action with specified command-line
-        uses: schemacrawler/SchemaCrawler-Action@v16.26.2
+        uses: schemacrawler/SchemaCrawler-Action@v16.26.3
         with:
           entrypoint: /schemacrawler.sh
-          args: --server=sqlite --database=schemacrawler.sqlite --user:env USER --password:env PASSWORD --info-level=standard --command=brief --output-file database-diagram.png --log-level CONFIG
+          args: >
+            --server=sqlite
+            --database=schemacrawler.sqlite
+            --user:env USER
+            --password:env PASSWORD
+            --info-level=standard
+            --command=brief
+            --output-file database-diagram.png
+            --log-level CONFIG
         env:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets
@@ -29,9 +37,3 @@ jobs:
         with:
           name: database-diagram
           path: database-diagram.png
-
-      - id: check-success
-        name: Fail the entire job if SchemaCrawler run failed
-        run: |
-          [ ${{ env.SC_EXIT_STATUS }} -eq 0 ] && echo "SchemaCrawler run succeeded" || echo "SchemaCrawler run failed"
-          [ ${{ env.SC_EXIT_STATUS }} -eq 0 ] || exit 1

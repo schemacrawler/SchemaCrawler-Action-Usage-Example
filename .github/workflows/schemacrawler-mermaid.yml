@@ -38,6 +38,12 @@ jobs:
           npm install @mermaid-js/mermaid-cli
           ./node_modules/.bin/mmdc -i mermaid-er.mmd -o mermaid-er.png -s 3
 
+      - id: generate-diagram
+        name: Generate mermaid diagram
+        uses: uni-3/render-mermaid-svg@v2
+        with:
+          input-files: mermaid-er.mmd
+
       - id: upload-mermaid-er
         name: Upload SchemaCrawler mermaid diagram
         uses: actions/upload-artifact@v4

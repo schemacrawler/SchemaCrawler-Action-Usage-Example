@@ -15,7 +15,7 @@ jobs:
 
       - id: schemacrawler
         name: Run SchemaCrawler Action with specified command-line
-        uses: schemacrawler/SchemaCrawler-Action@v16.26.3
+        uses: schemacrawler/SchemaCrawler-Action@v16.27.1
         with:
           entrypoint: /schemacrawler.sh
           args: >
@@ -30,12 +30,6 @@ jobs:
         env:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets
-
-      - id: generate-diagram
-        name: Generate mermaid diagram
-        uses: uni-3/render-mermaid-svg@v2
-        with:
-          input-files: mermaid-er.mmd
 
       - id: upload-mermaid-er
         name: Upload SchemaCrawler mermaid diagram

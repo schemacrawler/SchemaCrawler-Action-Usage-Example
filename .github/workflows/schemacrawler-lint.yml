@@ -15,7 +15,7 @@ jobs:
 
       - id: schemacrawler
         name: Run SchemaCrawler Action with specified command-line
-        uses: schemacrawler/SchemaCrawler-Action@v17.1.7
+        uses: schemacrawler/SchemaCrawler-Action@v17.2.8
         with:
           entrypoint: /schemacrawler.sh
           args: >

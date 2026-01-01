@@ -1,0 +1,76 @@
+[1mdiff --git a/.github/workflows/schemacrawler-dbml.yml b/.github/workflows/schemacrawler-dbml.yml[m
+[1mindex 9ab31f5..c8f863e 100644[m
+[1m--- a/.github/workflows/schemacrawler-dbml.yml[m
+[1m+++ b/.github/workflows/schemacrawler-dbml.yml[m
+[36m@@ -15,7 +15,7 @@[m [mjobs:[m
+ [m
+       - id: schemacrawler[m
+         name: Run SchemaCrawler Action with specified command-line[m
+[31m-        uses: schemacrawler/SchemaCrawler-Action@v17.2.8[m
+[32m+[m[32m        uses: schemacrawler/SchemaCrawler-Action@v17.3.0[m
+         with:[m
+           entrypoint: /schemacrawler.sh[m
+           args: >[m
+[1mdiff --git a/.github/workflows/schemacrawler-job.yml b/.github/workflows/schemacrawler-job.yml[m
+[1mindex 459db81..00822bf 100644[m
+[1m--- a/.github/workflows/schemacrawler-job.yml[m
+[1m+++ b/.github/workflows/schemacrawler-job.yml[m
+[36m@@ -15,7 +15,7 @@[m [mjobs:[m
+ [m
+       - id: schemacrawler[m
+         name: Run SchemaCrawler Action with specified command-line[m
+[31m-        uses: schemacrawler/SchemaCrawler-Action@v17.2.8[m
+[32m+[m[32m        uses: schemacrawler/SchemaCrawler-Action@v17.3.0[m
+         with:[m
+           entrypoint: /schemacrawler.sh[m
+           args: >[m
+[1mdiff --git a/.github/workflows/schemacrawler-lint.yml b/.github/workflows/schemacrawler-lint.yml[m
+[1mindex f2f652b..3bc7604 100644[m
+[1m--- a/.github/workflows/schemacrawler-lint.yml[m
+[1m+++ b/.github/workflows/schemacrawler-lint.yml[m
+[36m@@ -15,7 +15,7 @@[m [mjobs:[m
+ [m
+       - id: schemacrawler[m
+         name: Run SchemaCrawler Action with specified command-line[m
+[31m-        uses: schemacrawler/SchemaCrawler-Action@v17.2.8[m
+[32m+[m[32m        uses: schemacrawler/SchemaCrawler-Action@v17.3.0[m
+         with:[m
+           entrypoint: /schemacrawler.sh[m
+           args: >[m
+[1mdiff --git a/.github/workflows/schemacrawler-mermaid.yml b/.github/workflows/schemacrawler-mermaid.yml[m
+[1mindex 451e971..cb46a0b 100644[m
+[1m--- a/.github/workflows/schemacrawler-mermaid.yml[m
+[1m+++ b/.github/workflows/schemacrawler-mermaid.yml[m
+[36m@@ -15,7 +15,7 @@[m [mjobs:[m
+ [m
+       - id: schemacrawler[m
+         name: Run SchemaCrawler Action with specified command-line[m
+[31m-        uses: schemacrawler/SchemaCrawler-Action@v17.2.8[m
+[32m+[m[32m        uses: schemacrawler/SchemaCrawler-Action@v17.3.0[m
+         with:[m
+           entrypoint: /schemacrawler.sh[m
+           args: >[m
+[1mdiff --git a/.gitlab-ci.yml b/.gitlab-ci.yml[m
+[1mindex 2b5f8ac..984fac0 100644[m
+[1m--- a/.gitlab-ci.yml[m
+[1m+++ b/.gitlab-ci.yml[m
+[36m@@ -1,5 +1,5 @@[m
+ image: [m
+[31m-  name: schemacrawler/schemacrawler:v17.2.8[m
+[32m+[m[32m  name: schemacrawler/schemacrawler:v17.3.0[m
+   entrypoint: [""][m
+ [m
+ variables:[m
+[1mdiff --git a/pom.xml b/pom.xml[m
+[1mindex 13df100..d18c487 100644[m
+[1m--- a/pom.xml[m
+[1m+++ b/pom.xml[m
+[36m@@ -6,7 +6,7 @@[m
+   <modelVersion>4.0.0</modelVersion>[m
+   <groupId>us.fatehi</groupId>[m
+   <artifactId>schemacrawler-action-usage-example</artifactId>[m
+[31m-  <version>17.2.8</version>[m
+[32m+[m[32m  <version>17.3.0</version>[m
+   <packaging>pom</packaging>[m
+   <name>SchemaCrawler Action for GitHub Actions - Usage Example</name>[m
+ </project>[m

@@ -7,7 +7,7 @@
        - id: schemacrawler[m
          name: Run SchemaCrawler Action with specified command-line[m
 [31m-        uses: schemacrawler/SchemaCrawler-Action@v17.2.8[m
-[32m+[m[32m        uses: schemacrawler/SchemaCrawler-Action@v17.5.0[m
+[32m+[m[32m        uses: schemacrawler/SchemaCrawler-Action@v17.6.2[m
          with:[m
            entrypoint: /schemacrawler.sh[m
            args: >[m
@@ -20,7 +20,7 @@
        - id: schemacrawler[m
          name: Run SchemaCrawler Action with specified command-line[m
 [31m-        uses: schemacrawler/SchemaCrawler-Action@v17.2.8[m
-[32m+[m[32m        uses: schemacrawler/SchemaCrawler-Action@v17.5.0[m
+[32m+[m[32m        uses: schemacrawler/SchemaCrawler-Action@v17.6.2[m
          with:[m
            entrypoint: /schemacrawler.sh[m
            args: >[m
@@ -33,7 +33,7 @@
        - id: schemacrawler[m
          name: Run SchemaCrawler Action with specified command-line[m
 [31m-        uses: schemacrawler/SchemaCrawler-Action@v17.2.8[m
-[32m+[m[32m        uses: schemacrawler/SchemaCrawler-Action@v17.5.0[m
+[32m+[m[32m        uses: schemacrawler/SchemaCrawler-Action@v17.6.2[m
          with:[m
            entrypoint: /schemacrawler.sh[m
            args: >[m
@@ -46,7 +46,7 @@
        - id: schemacrawler[m
          name: Run SchemaCrawler Action with specified command-line[m
 [31m-        uses: schemacrawler/SchemaCrawler-Action@v17.2.8[m
-[32m+[m[32m        uses: schemacrawler/SchemaCrawler-Action@v17.5.0[m
+[32m+[m[32m        uses: schemacrawler/SchemaCrawler-Action@v17.6.2[m
          with:[m
            entrypoint: /schemacrawler.sh[m
            args: >[m
@@ -57,7 +57,7 @@
 [36m@@ -1,5 +1,5 @@[m
  image: [m
 [31m-  name: schemacrawler/schemacrawler:v17.2.8[m
-[32m+[m[32m  name: schemacrawler/schemacrawler:v17.5.0[m
+[32m+[m[32m  name: schemacrawler/schemacrawler:v17.6.2[m
    entrypoint: [""][m
  [m
  variables:[m
@@ -70,7 +70,7 @@
    <groupId>us.fatehi</groupId>[m
    <artifactId>schemacrawler-action-usage-example</artifactId>[m
 [31m-  <version>17.2.8</version>[m
-[32m+[m[32m  <version>17.5.0</version>[m
+[32m+[m[32m  <version>17.6.2</version>[m
    <packaging>pom</packaging>[m
    <name>SchemaCrawler Action for GitHub Actions - Usage Example</name>[m
  </project>[m

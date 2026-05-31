@@ -20,7 +20,7 @@ jobs:
           entrypoint: /schemacrawler.sh
           args: >
             --server=sqlite
-            --database=home/schcrwlr/sc.db
+            --database=/home/schcrwlr/sc.db
             --info-level=standard
             --command script
             --tables "Authors|Books|BookAuthors"

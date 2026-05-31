@@ -44,7 +44,7 @@ jobs:
 
       - id: upload-dbml
         name: Upload SchemaCrawler dbdiagram.io diagram
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dbml-er
           path: dbml-er*.*

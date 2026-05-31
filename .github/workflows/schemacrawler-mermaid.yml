@@ -20,21 +20,24 @@ jobs:
           entrypoint: /schemacrawler.sh
           args: >
             --server=sqlite
-            --database=schemacrawler.sqlite
+            --database=home/schcrwlr/sc.db
             --info-level=standard
             --command script
             --tables "Authors|Books|BookAuthors"
-            --script-language python --script ./.github/scripts/mermaid.py
+            --script-language python 
+            --script /scripts/mermaid.py
             --output-file mermaid-er.mmd
             --log-level CONFIG
         env:
           USER: user-possibly-from-secrets
           PASSWORD: password-possibly-from-secrets
 
-      - id: upload-mermaid-er
-        name: Upload SchemaCrawler mermaid diagram
-        uses: actions/upload-artifact@v7
-        with:
-          name: mermaid-er
-          path: mermaid-er.*
-          if-no-files-found: error
+      - id: display-report
+        name: Wrap Mermaid diagram in Markdown and display as job output
+        run: |
+          # Create enclosing Markdown file with Mermaid code block
+          echo '```mermaid' > mermaid-diagram.md
+          cat mermaid-er.mmd >> mermaid-diagram.md
+          echo '```' >> mermaid-diagram.md
+          # Display the wrapped content in workflow output
+          cat mermaid-diagram.md >> $GITHUB_STEP_SUMMARY

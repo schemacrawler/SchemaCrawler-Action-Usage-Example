@@ -48,3 +48,4 @@ jobs:
         with:
           name: dbml-er
           path: dbml-er*.*
+          if-no-files-found: error

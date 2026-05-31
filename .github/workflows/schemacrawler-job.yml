@@ -37,3 +37,4 @@ jobs:
         with:
           name: database-diagram
           path: database-diagram.png
+          if-no-files-found: error

@@ -37,3 +37,4 @@ jobs:
         with:
           name: mermaid-er
           path: mermaid-er.*
+          if-no-files-found: error

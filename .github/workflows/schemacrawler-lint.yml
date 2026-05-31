@@ -39,3 +39,4 @@ jobs:
         with:
           name: lint-report
           path: lint-report.txt
+          if-no-files-found: error

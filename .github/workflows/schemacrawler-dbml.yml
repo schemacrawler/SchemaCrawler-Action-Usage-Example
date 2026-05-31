@@ -25,7 +25,7 @@ jobs:
             --command script
             --tables "Authors|Books|BookAuthors"
             --script-language python
-            --script ./.github/scripts/dbml.py
+            --script /scripts/dbml.py
             --output-file dbml-er.dbml
             --log-level CONFIG
         env:
